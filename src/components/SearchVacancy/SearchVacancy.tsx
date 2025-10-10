@@ -10,7 +10,7 @@ export default function SearchVacancy() {
   const startSearch = () => {
     if (searchValue) {
       dispatch(fetchVacancy({ page: 1 }));
-      //   dispatch(setSearchValue(""));
+      dispatch(setSearchValue(""));
     }
   };
   return (
