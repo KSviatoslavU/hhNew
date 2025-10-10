@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 59px;
+  background-color: var(--mantine-color-background-0);
+  padding: 0 16px;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 22.5px 0px #1c1d1f0d;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.5s;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--mantine-color-primary-4);
+  border-radius: 50%;
+}
+
+.aboutMe {
+  gap: 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: var(--mantine-color-gray-0);
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.linkBlock {
+  margin-left: 20px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.vacancy {
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 0.6;
+  }
+}

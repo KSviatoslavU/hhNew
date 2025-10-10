@@ -1,0 +1,15 @@
+.container {
+  background-color: white;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.root {
+  background-color: #f6f6f7 !important;
+  color: #000 !important;
+}
+
+.remove {
+  color: var(--mantine-color-lightGray-0) !important;
+}
