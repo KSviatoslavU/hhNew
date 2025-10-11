@@ -7,12 +7,12 @@ export default function PaginationBar() {
   const dispatch = useTypedDispatch();
   const [activePage, setPage] = useState(1);
   const searchValue = useTypedSelector((state) => state.vacancies.searchValue);
-  const cityId = useTypedSelector((state) => state.vacancies.cityId);
   const vacancies = useTypedSelector((state) => state.vacancies.vacancies);
   const totalPages = useTypedSelector((state) => state.vacancies.totalPages);
+
   useEffect(() => {
     setPage(1);
-  }, [searchValue, cityId]);
+  }, [searchValue]);
 
   const handleChange = (page: number) => {
     if (vacancies.length) {
