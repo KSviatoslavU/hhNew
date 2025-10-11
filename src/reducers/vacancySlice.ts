@@ -14,7 +14,7 @@ export const fetchVacancy = createAsyncThunk<
       const searchValue = state.vacancies.searchValue;
 
       const response = await fetch(
-        `https://api.hh.ru/vacancies?industry=7&professional_role=96&search_field=name&search_field=company_name&text=${searchValue}}&area=${cityId}&per_page=10&page=${page}`
+        `https://api.hh.ru/vacancies?industry=7&professional_role=96&search_field=name&search_field=company_name&text=${searchValue}&area=${cityId}&per_page=10&page=${page}`
       );
       // `https://api.hh.ru/vacancies?industry=7&professional_role=96&text=${searchValue}&area=${cityId}&per_page=10&page=${page}` поиск везде
       // `https://api.hh.ru/vacancies?industry=7&professional_role=96&search_field=name&text=${searchValue}&area=${cityId}&per_page=10&page=${page}` по названию
@@ -42,6 +42,7 @@ interface VacanciesState {
   searchValue: string;
   cityId: string;
   endLoading: boolean;
+  totalPages: number;
 }
 
 const initialState: VacanciesState = {
@@ -51,6 +52,7 @@ const initialState: VacanciesState = {
   searchValue: "",
   cityId: "113",
   endLoading: false,
+  totalPages: 0,
 };
 
 const vacanciesSlice = createSlice({
@@ -87,6 +89,7 @@ const vacanciesSlice = createSlice({
         state.isLoading = false;
         state.vacancies = action.payload.items;
         state.endLoading = true;
+        state.totalPages = action.payload.pages;
       })
       .addCase(fetchVacancy.rejected, (state, action) => {
         state.isLoading = false;
