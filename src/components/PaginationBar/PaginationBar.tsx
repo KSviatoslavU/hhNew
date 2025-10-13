@@ -20,6 +20,8 @@ export default function PaginationBar() {
       dispatch(fetchVacancy({ page: page - 1 }));
     }
   };
+
+  if (!vacancies.length) return null;
   return (
     <Flex justify="center" mt="lg">
       <Pagination

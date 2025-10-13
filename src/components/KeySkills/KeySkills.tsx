@@ -12,6 +12,9 @@ export default function KeySkills() {
   const [inputValue, setInputValue] = useState("");
 
   const handleAddSkill = () => {
+    if (!inputValue.trim()) {
+      return;
+    }
     if (!skills.includes(inputValue) && inputValue) {
       setSkills((prev) => [...prev, inputValue]);
       setInputValue("");
