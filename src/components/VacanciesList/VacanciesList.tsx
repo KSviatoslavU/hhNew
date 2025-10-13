@@ -11,7 +11,6 @@ export default function VacanciesList() {
   return (
     <>
       {endLoading && !vacancies.length && <h1>Ничего не найдено</h1>}
-      {!vacancies.length && <h1>Введите должность или название компании</h1>}
       {error && <h1>{error}</h1>}
       {loading && <h1>Загрузка...</h1>}
       {vacancies.map((vacancy) => {

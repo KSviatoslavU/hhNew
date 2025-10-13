@@ -1,10 +1,12 @@
-import { Header } from "../index";
-import { SearchVacancy } from "../index";
-import { KeySkills } from "../index";
 import styles from "./App.module.scss";
-import { CitySelect } from "../index";
-import { VacanciesList } from "../index";
-import { PaginationBar } from "../index";
+import {
+  PaginationBar,
+  VacanciesList,
+  CitySelect,
+  KeySkills,
+  SearchVacancy,
+  Header,
+} from "../index";
 export default function App() {
   return (
     <>

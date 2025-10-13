@@ -3,11 +3,16 @@ import { IconSearch } from "@tabler/icons-react";
 import styles from "../SearchVacancy/SearchVacansy.module.scss";
 import { useTypedDispatch } from "../../hooks/redux";
 import { setSearchValue, fetchVacancy } from "../../reducers/vacancySlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SearchVacancy() {
   const [inputValue, setInputValue] = useState("");
   const dispatch = useTypedDispatch();
+
+  useEffect(() => {
+    dispatch(fetchVacancy({ page: 0 }));
+  }, [dispatch]);
+
   const startSearch = () => {
     if (!inputValue) return;
     dispatch(setSearchValue(inputValue));
