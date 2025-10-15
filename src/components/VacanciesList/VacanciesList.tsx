@@ -1,5 +1,4 @@
 import { useTypedSelector } from "../../hooks/redux";
-
 import { VacancyCard } from "../index";
 
 export default function VacanciesList() {

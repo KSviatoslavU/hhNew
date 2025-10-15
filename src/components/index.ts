@@ -6,3 +6,4 @@ export { default as PaginationBar } from "./PaginationBar/PaginationBar";
 export { default as SearchVacancy } from "./SearchVacancy/SearchVacancy";
 export { default as VacanciesList } from "./VacanciesList/VacanciesList";
 export { default as VacancyCard } from "./VacancyCard/VacancyCard";
+export { default as CurrentVacancy } from "./CurrentVacancy/CurrentVacancy";

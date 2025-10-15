@@ -1,24 +1,52 @@
 import { Button, Input, Divider } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import styles from "../SearchVacancy/SearchVacansy.module.scss";
-import { useTypedDispatch } from "../../hooks/redux";
+import { useTypedDispatch, useTypedSelector } from "../../hooks/redux";
 import { setSearchValue, fetchVacancy } from "../../reducers/vacancySlice";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export default function SearchVacancy() {
   const [inputValue, setInputValue] = useState("");
   const dispatch = useTypedDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchValue = useTypedSelector((state) => state.vacancies.searchValue);
 
   useEffect(() => {
-    dispatch(fetchVacancy({ page: 0 }));
-  }, [dispatch]);
+    const urlValue = searchParams.get("name") ?? "";
 
+    if (!urlValue) {
+      setSearchParams((prev) => {
+        const params = new URLSearchParams(prev);
+        params.set("name", "");
+        return params;
+      });
+      dispatch(fetchVacancy({ page: 0 }));
+      return;
+    }
+
+    if (urlValue !== searchValue) {
+      dispatch(setSearchValue(urlValue));
+      dispatch(fetchVacancy({ page: 0 }));
+      setInputValue(urlValue);
+      return;
+    }
+
+    setInputValue(urlValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
   const startSearch = () => {
     if (!inputValue) return;
     dispatch(setSearchValue(inputValue));
     dispatch(fetchVacancy({ page: 0 }));
-    setInputValue("");
+
+    setSearchParams((prev) => {
+      const params = new URLSearchParams(prev);
+      params.set("name", inputValue);
+      return params;
+    });
   };
+
   return (
     <>
       <div className={styles.wrapper}>

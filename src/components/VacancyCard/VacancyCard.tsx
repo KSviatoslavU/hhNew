@@ -1,7 +1,7 @@
 import { Badge, Button, Card, Stack, Text } from "@mantine/core";
 import styles from "./VacancyCard.module.scss";
 import type { Vacancy } from "../../types";
-
+import { Link } from "react-router-dom";
 interface VacancyCardProps {
   vacancy: Vacancy;
 }
@@ -86,16 +86,22 @@ export default function VacancyCard({ vacancy }: VacancyCardProps) {
           </Text>
         </div>
         <div className={styles.buttonContainer}>
+          <Link
+            to={`/vacancy/${vacancy.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className={styles.buttonPrimary}>Смотреть вакансию</Button>
+          </Link>
           <Button
+            className={styles.buttonSecondary}
             component="a"
             href={vacancy?.alternate_url ?? "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.buttonPrimary}
           >
-            Смотреть вакансию
+            Откликнуться
           </Button>
-          <Button className={styles.buttonSecondary}>Откликнуться</Button>
         </div>
       </Stack>
     </Card>

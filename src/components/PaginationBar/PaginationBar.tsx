@@ -6,13 +6,14 @@ import { fetchVacancy } from "../../reducers/vacancySlice";
 export default function PaginationBar() {
   const dispatch = useTypedDispatch();
   const [activePage, setPage] = useState(1);
+  const cityValue = useTypedSelector((state) => state.vacancies.cityId);
   const searchValue = useTypedSelector((state) => state.vacancies.searchValue);
   const vacancies = useTypedSelector((state) => state.vacancies.vacancies);
   const totalPages = useTypedSelector((state) => state.vacancies.totalPages);
 
   useEffect(() => {
     setPage(1);
-  }, [searchValue]);
+  }, [searchValue, cityValue]);
 
   const handleChange = (page: number) => {
     if (vacancies.length) {

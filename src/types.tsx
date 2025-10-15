@@ -1,5 +1,5 @@
 export interface Vacancy {
-  id: string;
+  id: string | number;
   name: string;
   salary: {
     from: number | null;
@@ -22,6 +22,7 @@ export interface Vacancy {
   } | null;
   alternate_url: string;
   work_format?: { id: "REMOTE" | "ON_SITE" | "HYBRID" | string }[];
+  description: string;
 }
 
 export interface VacanciesResponse {

@@ -1,31 +1,14 @@
-import styles from "./App.module.scss";
-import {
-  PaginationBar,
-  VacanciesList,
-  CitySelect,
-  KeySkills,
-  SearchVacancy,
-  Header,
-} from "../index";
+import MainPage from "../../Pages/VacancyListPage";
+import VacancyPage from "../../Pages/VacancyPage";
+import { Routes, Route, Navigate } from "react-router-dom";
 export default function App() {
   return (
     <>
-      <Header />
-      <SearchVacancy />
-      <main className={styles.main}>
-        <div className={styles.layout}>
-          <div className={styles.sidebar}>
-            <KeySkills />
-            <CitySelect />
-          </div>
-          <div className={styles.content}>
-            <VacanciesList />
-          </div>
-        </div>
-      </main>
-      <div className={styles.pagination}>
-        <PaginationBar />
-      </div>
+      <Routes>
+        <Route path="/" element={<Navigate to="/vacancy" replace />} />
+        <Route path="/vacancy" element={<MainPage />} />
+        <Route path="/vacancy/:id" element={<VacancyPage />} />
+      </Routes>
     </>
   );
 }
