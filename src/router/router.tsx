@@ -1,7 +1,6 @@
 import { createHashRouter, Navigate } from "react-router-dom";
 import MainPage from "../Pages/MainPage";
-import { CurrentVacancy, VacanciesList } from "../components";
-import Error from "../components/Error/Error";
+import { Error, CurrentVacancy, VacanciesList } from "../components/index";
 export const router = createHashRouter([
   {
     path: "/",
@@ -12,18 +11,18 @@ export const router = createHashRouter([
   {
     path: "/vacancy",
     element: <MainPage />,
-    errorElement: <h1>Ошибка</h1>,
+    errorElement: <Error />,
     children: [
       {
         path: ":city",
         element: <VacanciesList />,
-        errorElement: <h1>Ошибка</h1>,
+        errorElement: <Error />,
       },
     ],
   },
   {
     path: "/vacancy/:city/:id",
     element: <CurrentVacancy />,
-    errorElement: <h1>Ошибка</h1>,
+    errorElement: <Error />,
   },
 ]);

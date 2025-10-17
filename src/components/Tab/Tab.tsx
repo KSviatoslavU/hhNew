@@ -6,7 +6,13 @@ export default function Tab() {
   const { city } = useParams();
 
   return (
-    <Tabs value={city} onChange={(value) => navigate(`/vacancy/${value}`)}>
+    <Tabs
+      defaultValue="moscow"
+      value={city}
+      onChange={(value) => {
+        if (value) navigate(`/vacancy/${value}`);
+      }}
+    >
       <Tabs.List>
         <Tabs.Tab value="moscow">Москва</Tabs.Tab>
         <Tabs.Tab value="petersburg">Санкт-Петербург</Tabs.Tab>
