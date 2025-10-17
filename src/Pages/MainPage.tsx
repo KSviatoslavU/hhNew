@@ -1,12 +1,12 @@
-import styles from "../components/App/App.module.scss";
+import styles from "./MainPage.module.scss";
 import {
   PaginationBar,
-  VacanciesList,
-  CitySelect,
   KeySkills,
   SearchVacancy,
   Header,
 } from "../components/index";
+import { Outlet } from "react-router-dom";
+import Tab from "../components/Tab/Tab";
 
 export default function VacancyListPage() {
   return (
@@ -17,10 +17,10 @@ export default function VacancyListPage() {
         <div className={styles.layout}>
           <div className={styles.sidebar}>
             <KeySkills />
-            <CitySelect />
           </div>
           <div className={styles.content}>
-            <VacanciesList />
+            <Tab />
+            <Outlet />
           </div>
         </div>
       </main>

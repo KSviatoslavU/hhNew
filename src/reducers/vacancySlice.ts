@@ -50,7 +50,7 @@ const initialState: VacanciesState = {
   isLoading: false,
   error: null,
   searchValue: "",
-  cityId: "113",
+  cityId: "1",
   endLoading: false,
   totalPages: 0,
 };

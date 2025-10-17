@@ -21,7 +21,6 @@ export default function SearchVacancy() {
         params.set("name", "");
         return params;
       });
-      dispatch(fetchVacancy({ page: 0 }));
       return;
     }
 
@@ -68,6 +67,11 @@ export default function SearchVacancy() {
               size="md"
               radius="md"
               placeholder="Должность или название компании"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  startSearch();
+                }
+              }}
             />
             <Button size="md" color="primary" radius="sm" onClick={startSearch}>
               Найти

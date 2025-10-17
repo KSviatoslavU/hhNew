@@ -35,7 +35,6 @@ export default function Vacancy() {
   if (isLoading) return <div>Загрузка вакансии...</div>;
   if (error) return <div>Ошибка: {error}</div>;
   if (!vacancy) return <div>Вакансия не найдена</div>;
-
   return (
     <div className={styles.container}>
       <VacancyCard vacancy={vacancy} />

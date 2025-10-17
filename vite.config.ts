@@ -7,7 +7,7 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [svgr(), react()],
-  base: "/hh/",
+  base: "/hhNew/",
   test: {
     globals: true,
     environment: "jsdom",

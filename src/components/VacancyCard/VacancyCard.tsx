@@ -1,12 +1,13 @@
 import { Badge, Button, Card, Stack, Text } from "@mantine/core";
 import styles from "./VacancyCard.module.scss";
 import type { Vacancy } from "../../types";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 interface VacancyCardProps {
   vacancy: Vacancy;
 }
 
 export default function VacancyCard({ vacancy }: VacancyCardProps) {
+  const { city } = useParams();
   if (!vacancy) return null;
   const renderBadges = (vacancy: Vacancy) => {
     if (!vacancy.work_format || vacancy.work_format.length === 0) return null;
@@ -87,7 +88,7 @@ export default function VacancyCard({ vacancy }: VacancyCardProps) {
         </div>
         <div className={styles.buttonContainer}>
           <Link
-            to={`/vacancy/${vacancy.id}`}
+            to={`/vacancy/${city}/${vacancy.id}`}
             target="_blank"
             rel="noopener noreferrer"
           >

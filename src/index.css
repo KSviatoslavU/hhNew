@@ -1,3 +1,34 @@
 body {
   background-color: #f6f6f7;
 }
+
+.main {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 20px;
+}
+
+.layout {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  align-items: flex-start;
+}
+
+.sidebar {
+  flex: 0 0 317px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pagination {
+  padding-bottom: 25px;
+  margin: 20px 0 0 0;
+}
