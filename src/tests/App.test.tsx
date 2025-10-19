@@ -3,7 +3,6 @@ import { MantineProvider } from "@mantine/core";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import KeySkills from "../components/KeySkills/KeySkills";
-import CitySelect from "../components/CitySelect/CitySelect";
 import PaginationBar from "../components/PaginationBar/PaginationBar";
 import VacanciesList from "../components/VacanciesList/VacanciesList";
 import "@testing-library/jest-dom";
@@ -49,11 +48,6 @@ test("рендерит KeySkills и добавляет новый навык", (
   fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
 
   expect(screen.getByText("Next.js")).toBeInTheDocument();
-});
-
-test("рендерит CitySelect с placeholder", () => {
-  renderWithProviders(<CitySelect />);
-  expect(screen.getByPlaceholderText("Выберите город")).toBeInTheDocument();
 });
 
 test("рендерит PaginationBar и показывает первую страницу", () => {

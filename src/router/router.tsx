@@ -1,28 +1,33 @@
 import { createHashRouter, Navigate } from "react-router-dom";
-import MainPage from "../Pages/MainPage";
-import { Error, CurrentVacancy, VacanciesList } from "../components/index";
+import Layout from "../Pages/Layout";
+import { ErrorPage, CurrentVacancy, AboutMe } from "../components/index";
+import VacancyPages from "../Pages/VacancyPage";
 export const router = createHashRouter([
   {
     path: "/",
-    element: <Navigate to="/vacancy/moscow" replace />,
-    errorElement: <Error />,
+    element: <Navigate to="/vacancies/moscow" replace />,
   },
 
+  { path: "/vacancies", element: <Navigate to="/vacancies/moscow" replace /> },
+
   {
-    path: "/vacancy",
-    element: <MainPage />,
-    errorElement: <Error />,
+    path: "/",
+    element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: ":city",
-        element: <VacanciesList />,
-        errorElement: <Error />,
+        path: "vacancies/:city",
+        element: <VacancyPages />,
+      },
+      {
+        path: "vacancies/:city/:id",
+        element: <CurrentVacancy />,
+      },
+      { path: "about", element: <AboutMe /> },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
-  },
-  {
-    path: "/vacancy/:city/:id",
-    element: <CurrentVacancy />,
-    errorElement: <Error />,
   },
 ]);

@@ -5,4 +5,5 @@ export { default as SearchVacancy } from "./SearchVacancy/SearchVacancy";
 export { default as VacanciesList } from "./VacanciesList/VacanciesList";
 export { default as VacancyCard } from "./VacancyCard/VacancyCard";
 export { default as CurrentVacancy } from "./CurrentVacancy/CurrentVacancy";
-export { default as Error } from "./Error/Error";
+export { default as ErrorPage } from "./ErrorPage/ErrorPage";
+export { default as AboutMe } from "./AboutMe/AboutMe";

@@ -1,17 +1,15 @@
-import styles from "./MainPage.module.scss";
+import styles from "./VacancyPage.module.scss";
 import {
   PaginationBar,
   KeySkills,
   SearchVacancy,
-  Header,
+  VacanciesList,
 } from "../components/index";
-import { Outlet } from "react-router-dom";
 import Tab from "../components/Tab/Tab";
 
-export default function VacancyListPage() {
+export default function VacancyPage() {
   return (
     <>
-      <Header />
       <SearchVacancy />
       <main className={styles.main}>
         <div className={styles.layout}>
@@ -20,7 +18,7 @@ export default function VacancyListPage() {
           </div>
           <div className={styles.content}>
             <Tab />
-            <Outlet />
+            <VacanciesList />
           </div>
         </div>
       </main>

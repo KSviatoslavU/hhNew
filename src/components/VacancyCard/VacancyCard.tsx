@@ -88,7 +88,7 @@ export default function VacancyCard({ vacancy }: VacancyCardProps) {
         </div>
         <div className={styles.buttonContainer}>
           <Link
-            to={`/vacancy/${city}/${vacancy.id}`}
+            to={`/vacancies/${city}/${vacancy.id}`}
             target="_blank"
             rel="noopener noreferrer"
           >

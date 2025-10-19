@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  max-width: 610px;
+  gap: 24px;
+  width: 100%;
+  justify-content: center;
+  margin: 20px auto;
+  flex-direction: column;
+}
+
+.info {
+  align-items: center;
+  justify-content: center;
+  max-width: 610px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-family: Open Sans;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 26px;
+    line-height: 135%;
+    letter-spacing: 0%;
+    color: black;
+  }
+
+  p {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: black;
+  }
+}

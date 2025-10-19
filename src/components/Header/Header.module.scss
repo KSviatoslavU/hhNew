@@ -56,3 +56,13 @@
     opacity: 0.6;
   }
 }
+
+.link {
+  text-decoration: none;
+  color: var(--mantine-color-gray-0);
+}
+
+.link.active,
+.link.active .aboutMe {
+  color: #000000;
+}

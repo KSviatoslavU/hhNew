@@ -11,27 +11,20 @@ export default function SearchVacancy() {
   const dispatch = useTypedDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchValue = useTypedSelector((state) => state.vacancies.searchValue);
-
   useEffect(() => {
     const urlValue = searchParams.get("name") ?? "";
 
-    if (!urlValue) {
-      setSearchParams((prev) => {
-        const params = new URLSearchParams(prev);
-        params.set("name", "");
-        return params;
-      });
-      return;
-    }
-
     if (urlValue !== searchValue) {
       dispatch(setSearchValue(urlValue));
-      dispatch(fetchVacancy({ page: 0 }));
       setInputValue(urlValue);
-      return;
+      dispatch(fetchVacancy({ page: 0 }));
     }
 
-    setInputValue(urlValue);
+    if (!urlValue && searchValue) {
+      dispatch(setSearchValue(""));
+      setInputValue("");
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
   const startSearch = () => {
