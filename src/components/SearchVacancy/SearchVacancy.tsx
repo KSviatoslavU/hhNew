@@ -33,7 +33,12 @@ export default function SearchVacancy() {
 
     setSearchParams((prev) => {
       const params = new URLSearchParams(prev);
-      params.set("name", inputValue);
+      if (!inputValue) {
+        params.delete("name");
+      } else {
+        params.set("name", inputValue);
+      }
+
       return params;
     });
   };
