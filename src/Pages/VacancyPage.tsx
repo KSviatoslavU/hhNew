@@ -1,4 +1,3 @@
-import styles from "./VacancyPage.module.scss";
 import {
   PaginationBar,
   KeySkills,
@@ -6,6 +5,7 @@ import {
   VacanciesList,
 } from "../components/index";
 import Tab from "../components/Tab/Tab";
+import styles from "./VacancyPage.module.scss";
 
 export default function VacancyPage() {
   return (

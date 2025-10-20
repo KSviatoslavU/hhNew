@@ -28,7 +28,6 @@ export default function SearchVacancy() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
   const startSearch = () => {
-    if (!inputValue) return;
     dispatch(setSearchValue(inputValue));
     dispatch(fetchVacancy({ page: 0 }));
 
